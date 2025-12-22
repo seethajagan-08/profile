@@ -15,26 +15,69 @@
         <!-- CSS -->
         <style>
             body.theme{
-                background-color: black;
+                background-color: #F8F8F8;
             }
 
 
             div.info{
-                height: 700px;
+                height: 43px;
+            }
+
+            div.content{
+                height: 1000px;
+            }
+            .main_content{
+                background-color: #F8F8F8;
+                border-radius: 5px;
+            }
+            .main_content:hover{
+                box-shadow: 0px 0px 15px lightgrey;
+            }
+            .text{
+                font-family: Calibri, 'Trebuchet MS', sans-serif;
+                font-size: medium;
+            }
+
+            /* Code Box */
+            .code_box{
+                padding: 6px 12px;
+                border-radius: 5px;
+                background-color:azure;
+                box-shadow: 0px 0px 4px grey;
+            }
+            .boxtext{
+                font-family: monospace;
+                font-weight: 600;
+                font-size: medium;
+            }
+            .blue{
+                color: rgb(50, 50, 250);
+            }
+            .green{
+                color: lightseagreen;
+            }
+            .brown{
+                color: brown;
+            }
+            .purple{
+                color: purple;
+            }
+            .grey{
+                color: grey;
             }
         </style>
     </head>
     <body class="theme" id="theme_light">
-        <div class="container-fluid bg-secondary p-0">
+        <div class="container-fluid p-0" style="background-color:#F8F8F8;">
 
             <!-- Fixed part -->
-            <div class="info container-fluid bg-info p-0">
+            <div class="info container-fluid p-0">
                 <!-- Nav Bar-->
                 <div class="w3-bar w3-red w3-flex" style="justify-content: flex-end;">
                     <!-- Nav -->
                     <a href="#" class="w3-bar-item w3-button w3-hide-small" style="padding:10px 5%;">Home</a>
                     <a href="#" class="w3-bar-item w3-button w3-hide-small" style="padding:10px 5%;">Profile</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hide-small" style="padding:10px 5%;">Work</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hide-small" style="padding:10px 5%;">Projects</a>
                     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-margin-right" style="padding:10px 5%;">Learn</a>
                     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()" style="padding:10px 5%;">&#9776;</a>
                     <!-- sidebar -->
@@ -42,26 +85,60 @@
                         <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
                         <a href="#" class="w3-bar-item w3-button">Home</a>
                         <a href="#" class="w3-bar-item w3-button">Profile</a>
-                        <a href="#" class="w3-bar-item w3-button">Work</a>
+                        <a href="#" class="w3-bar-item w3-button">Projects</a>
                         <a href="#" class="w3-bar-item w3-button">Learn</a>
                     </div>
                 </div>
             </div>
 
             <!-- Content Part -->
-            <div class="content">
-
-            </div>
+            <div class="content" style="box-shadow: 0px 0px red;">
+                <br>
+                <div class="main_content container" style="border-radius: 3px;">
+                    <br>
+                    <h1 style="text-align: center;font-weight:900; text-shadow: 0px 0px 40px grey;">
+                        Python 3
+                    </h1>
+                    <br>
+                    <p style="text-indent: 60px;;">
+                        <b>Python</b> is a high-level, interpreted & general purpose programming language. 
+                        It emphasis code readability with its clear syntax &amp; intendation structure.
+                        It was Developed by "Guido van Rossum" in the late 1989 and officially releases in 1991.
+                        It is efficient for development in Data Science, AI, Web Development, and more.
+                    </p>
+                    <br>
+                    <h4 style="text-decoration: Underline darkslategray 1px">Features</h4>
+                    <ol>
+                        <li>Open Scorce - Freely available for anyone to use</li>
+                        <li>Platform independent - It runs on Windows, MacOS, Linux, Android...</li>
+                        <li>Extensive Library ecosystem - One of the biggest reason to become famous</li>
+                        <li>Indented programming - Clear syntax</li>
+                        <li>Strong Community support</li>
+                    </ol>
+                    <br>
+                    <h4 style="text-decoration: Underline darkslategrey 1px">Applications</h4>
+                    <p>Due to its versatile Nature, it can do many operations like :</p>
+                    <ul style="list-style: none;">
+                        <li>&rarr; Data Science</li>
+                        <li>&rarr; Web application</li>
+                        <li>&rarr; Mobile applications</li>
+                        <li>&rarr; Desktop applications</li>
+                        <li>&rarr; Automation</li>
+                        <li>&rarr; Gaming applications</li>
+                        <li>&rarr; Machine Learning &amp; Deep Learning</li>
+                        <li>&rarr; AI &amp; Robotics</li>
+                        <li>&rarr; Graphics Design</li>
+                    </ul>
+                    <br>
+                </div>
         </div>
 
         <!-- JS -->
         <script>
-
-            // Theme
             const body = document.querySelector('body');
             const date = new Date();
             const hour = date.getHours();
-            // Theme Condition
+
             if (hour < 7) {
             body.style.backgroundColor = 'black';
             } else if (hour > 7 & hour < 18) {
@@ -69,10 +146,11 @@
             } else {
             body.style.backgroundColor = 'black';
             }
-            // Theme script
+
             function lighttheme(){
                 document.getElementById('theme_light').style.backgroundColor = "whitesmoke"
             }
+
             function darktheme(){
                 document.getElementById('theme_dark').style.backgroundColor = "black"
             }
