@@ -1,0 +1,226 @@
+div.info{
+    height: 43px;
+    border-bottom: 1px solid #dccff1;
+}
+div.link_active{
+    background-color: transparent;
+    text-decoration: none;
+    position: relative;
+}
+div.link_active:hover{
+    cursor: pointer;
+}
+div.bar_effect1{
+    width: 98%;
+    height: 1px;
+    background-color: #dccff1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: height 0.5s;
+    transition-timing-function: ease;
+    z-index: 0;
+}
+div.link_active:hover .bar_effect1{
+    width: 98%;
+    height: 100%;
+}
+div.link_active a{
+    z-index: 2;
+    position: relative;
+    text-decoration: none;
+}
+div.link_active:hover .text_effect{
+    z-index: 2;
+    color: black;
+}
+
+.time_n_date{
+    padding: 8px 5px 5px 15px;
+    background-color: transparent;
+    text-align: center;
+    float: left;
+    font-family: 'Digital-7', sans-serif;
+    letter-spacing: 2px;
+}
+img.gif{
+    width: 30px;
+    height: 30px;
+}
+
+
+div.content{
+    height: 2000px;
+    background-color: black;
+}
+
+/* Side bar */
+.menu-btn {
+    position: fixed;
+    top: 0px;
+    right: 15px;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 3000; /* 🔥 above everything */
+}
+
+/* RIGHT SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: -20px;
+    right: -200px;        /* hidden */
+    width: 200px;
+    height: 105vh;
+    background: #7d5ba6;
+    color: white;
+    padding: 20px 0px 20px 0px;
+    transition: right 0.3s ease;
+    z-index: 2000;       /* 🔥 higher than header */
+}
+
+.sidebar.open {
+    right: 0;            /* visible */
+}
+
+.close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    text-align: left;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e2cfff;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px 0;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #e2cfff;
+}
+
+.close-btn:hover, .sidebar a:hover{
+    background-color: #e2cfff;
+    color: #7d5ba6
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1500;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Mobile only */
+@media (min-width: 601px) {
+.menu-btn {
+    display: none;
+}
+}
+.menu-btn.hide {
+    display: none;
+}
+
+
+
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #ffffff, #eae1f8);
+  overflow-x: hidden;
+}
+
+/* ---------------- SMOOTH SCROLL CONTAINER ---------------- */
+.scroll-container {
+  position: fixed;
+  width: 100%;
+  will-change: transform;
+}
+
+/* ---------------- SECTIONS ---------------- */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  position: relative;
+}
+
+/* ---------------- CONTENT ---------------- */
+.content_info {
+  max-width: 555px;
+}
+
+h1 {
+  font-size: 48px;
+  color: #7d5ba6;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ---------------- FLOATING IMAGES ---------------- */
+.float {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.float.one {
+  top: 20%;
+  right: 30%;
+  animation-duration: 7s;
+}
+
+.float.two {
+  top: 65%;
+  right: 0%;
+  animation-duration: 9s;
+}
+
+.float.three {
+  top: 35%;
+  left: 80%;
+  animation-duration: 8s;
+}
+
+/* ---------------- SMOOTH TEXTURE BLOBS ---------------- */
+.blob {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: #9b7bbf;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  filter: blur(60px);
+  opacity: 0.25;
+  animation: blobMove 12s ease-in-out infinite;
+}
+
+.blob.one {
+  top: -100px;
+  left: -150px;
+}
+
+.blob.two {
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 3s;
+}
