@@ -120,7 +120,7 @@ div.content{
 }
 
 /* Mobile only */
-@media (min-width: 601px) {
+@media (min-width: 993px) {
 .menu-btn {
     display: none;
 }
