@@ -1,204 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Seetha Jagan</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- W3 CSS-->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link href="https://fonts.cdnfonts.com/css/digital-7" rel="stylesheet">
-<link href="profile.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seetha Jagan | Data Scientist & Analyst</title>
 
-<style>
-@keyframes float {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-25px); }
-  100% { transform: translateY(0px); }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/seven-segment" rel="stylesheet">
+
+
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #0f172a;
+      --accent: #38bdf8;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      animation: fadeDown 1s ease;
+    }
+
+    header h2 {
+      margin-top: 1rem;
+      font-weight: 400;
+      color: #c7d2fe;
+      animation: fadeUp 1.2s ease;
+    }
+
+    /* Typing cursor*/
+    #typed {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    #typed::after {
+      content: "";
+      margin-left: 4px;
+      animation: blink 3s infinite;
+    }
+
+    header a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 12px 28px;
+      border-radius: 30px;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(56,189,248,0.4);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 10%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill {
+      padding: 1.2rem;
+      border-radius: 14px;
+      background: #f1f5f9;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.25), transparent);
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .skill:hover::before {
+      transform: translateX(100%);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 3px solid var(--primary);
+      padding-left: 2rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 50%;
+      background-color: transparent;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      padding: 3rem 10%;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* Nav bar */
+.info {
+  width: 100%;
+  height: 43px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2500; /* above header */
+  background: transparent;
 }
-@keyframes blobMov {
-  0%   { transform: translate(0,0); }
-  50%  { transform: translate(40px,-30px); }
-  100% { transform: translate(0,0); }
+/* Color after scroll */
+.info.scrolled {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
 }
-</style>
+
+.time_n_date{
+    padding: 8px 0px 5px 15px;
+    background-color: transparent;
+    text-align: center;
+    float: left;
+    /* font-family: 'DS-Digital', monospace; */
+    font-family: 'Seven Segment', monospace;
+    letter-spacing: 2px;
+    color:white;
+}
+img.gif{
+    width: 30px;
+    height: 30px;
+}
+.page_nav{
+    padding: 10px 5%;
+    cursor: pointer;
+}
+div.page_nav a{
+    z-index: 2;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+}
+.current_page, a:hover{
+    text-shadow:
+    0 0 5px #38bdf8,
+    0 0 10px #38bdf8,
+    0 0 20px #0ff;
+    cursor: pointer;
+}
+.page_nav:hover .go_page{
+    text-shadow: 
+    0 0 5px #38bdf8,
+    0 0 10px #38bdf8;
+    cursor: pointer;
+}
+
+/* Side bar */
+.menu-btn {
+    position: fixed;
+    top: 8px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 3500; /* 🔥 always clickable */
+    color: white;
+}
+
+
+/* RIGHT SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -240px;      /* hidden */
+    width: 240px;
+    height: 100vh;
+    background: linear-gradient(180deg, #0f172a, #1e293b);
+    color: white;
+    padding-top: 20px;
+    transition: right 0.35s ease;
+    z-index: 3000;      /* 🔥 highest */
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+
+.close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.15);
+}
+.nav-portion{
+    justify-content: flex-end;
+    background-color: transparent;
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 0;
+    color: #e0e7ff;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+.close-btn:hover, .sidebar a:hover{
+    background-color: #38bdf8;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    z-index: 2000;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Mobile only */
+@media (min-width: 993px) {
+.menu-btn {
+    display: none;
+}
+}
+.menu-btn.hide {
+    display: none;
+}
+
+footer p ~ a:hover{
+    text-shadow: 
+    0 0 10px white,
+    0 0 15px blueviolet;
+}
+
+  </style>
 </head>
 
 <body>
 <div class="container-fluid p-0">
+    <nav class="info" id="fixedBar">
+      
+      <!-- Time & Date-->
+        <div style="float:left; width:42%; margin:auto;">
+            <div class="time_n_date">
+                <span id="date"></span>
+                <img id="dayNightGif" alt="Sun or Moon" class="gif">
+                <span id="time"></span>
+            </div>
+        </div>
 
-    <!-- Fixed part -->
-            <div class="info container-fluid p-0">
-                <!-- Nav Bar-->
-
-                <!-- Time & Date-->
-                <div style="float:left; width:42%; margin:auto;">
-                    <div class="time_n_date">
-                        <span id="date"></span>
-                        <img id="dayNightGif" alt="Sun or Moon" class="gif">
-                        <span id="time"></span>
-                    </div>
+      <!-- Nav -->
+        <div style="float:left; width:58%;">
+            <div class="w3-bar w3-flex nav-portion">
+                <!-- Home -->
+                <div class="w3-hide-medium w3-hide-small page_nav">
+                    <a href="#">
+                        <span class="go_page">Home</span>
+                    </a>
                 </div>
-
-                <!-- Nav -->
-                <div style="float:left; width:58%;">
-                    <div class="w3-bar w3-white w3-flex" style="justify-content: flex-end;">
-                        <!-- Home -->
-                        <div class="w3-hide-medium w3-hide-small link_active" style="padding:10px 5%;">
-                            <a href="#">
-                                <span class="text_effect">Home</span>
-                            </a>
-                            <div class="bar_effect1">&nbsp;</div>
-                        </div>
-                        <!-- About -->
-                        <div class="w3-hide-medium w3-hide-small link_active" style="padding:10px 5%;" id="goToAbout">
-                            <a href="#">
-                                <span class="text_effect">About</span>
-                            </a>
-                            <div class="bar_effect1">&nbsp;</div>
-                        </div>
-                        <!-- Projects -->
-                        <div class="w3-hide-medium w3-hide-small link_active" style="padding:10px 5%;" id="goToProjects">
-                            <a href="#">
-                                <span class="text_effect">Projects</span>
-                            </a>
-                            <div class="bar_effect1">&nbsp;</div>
-                        </div>
-                        <!-- BIN -->
-                        <div class="w3-hide-medium w3-hide-small link_active" style="padding:10px 5%;margin-right:5%" id="goToBIN">
-                            <a href="#">
-                                <span class="text_effect">BIN&nbsp;</span>
-                            </a>
-                            <div class="bar_effect1">&nbsp;</div>
-                        </div>
-                    </div>
-                    <!-- sidebar -->
-                    <!-- Hamburger -->
-                    <div class="menu-btn" id="menuBtn">☰</div>
-
-                    <!-- Sidebar -->
-                    <div class="sidebar" id="sidebar">
-                    <div class="close-btn" id="closeBtn">✖</div>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Projects</a>
-                    <a href="#">BIN</a>
-                    </div>
-
-                    <!-- Overlay -->
-                    <div class="overlay" id="overlay"></div>
+                <!-- About -->
+                <div class="w3-hide-medium w3-hide-small page_nav current_page" id="goToAbout">
+                    <a href="about.html">
+                        <span>About Me</span>
+                    </a>
+                </div>
+                <!-- Projects -->
+                <div class="w3-hide-medium w3-hide-small page_nav" id="goToProjects">
+                    <a href="#">
+                        <span class="go_page">Projects</span>
+                    </a>
+                </div>
+                <!-- BIN -->
+                <div class="w3-hide-medium w3-hide-small page_nav" style="margin-right:5%" id="goToBIN">
+                    <a href="#">
+                        <span class="go_page">BIN&nbsp;</span>
+                    </a>
                 </div>
             </div>
-<!-- BLUR TEXTURE -->
-<div class="blob one"></div>
-<div class="blob two"></div>
+            <!-- sidebar -->
+            <!-- Hamburger -->
+            <div class="menu-btn" id="menuBtn">☰</div>
 
-<!-- FLOATING ICONS -->
-<img class="float one" src="mind.png" width="600">
-<img class="float two w3-hide-medium w3-hide-small" src="ai.png" width="700">
-<img class="float three w3-hide-small" src="stats.png" width="500">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="close-btn" id="closeBtn">✖</div>
+                    <a href="#" onclick="closeSidebar()">Home</a>
+                    <a href="#" onclick="closeSidebar()">About Me</a>
+                    <a href="#" onclick="closeSidebar()">Projects</a>
+                    <a href="#" onclick="closeSidebar()">BIN</a>
+                </div>
 
-<!-- SCROLL CONTENT -->
-<div class="scroll-container">
-  <section>
-    <div class="content_info">
-        
-      <span>Hi, I'm <h1>Seetha Jagan</h1></span>
+            <!-- Overlay -->
+            <div class="overlay" id="overlay"></div>
+        </div>
+    </nav>
+<!-- HERO -->
+<header>
+  <div>
+    <h1>Seetha Jagan</h1>
+    <h2><span id="typed"></span></h2>
+    <a href="#projects">View My Work</a><br/><br/>
+    <a href="Seetha_Jagan's-Resume.pdf" download>Download Resume (PDF)</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h3 class="section-title">Profile</h3>
+  <div class="card" data-aos="fade-up">
+    <p style="text-indent:25px;">
+      Passionate Data Scientist and Data Analyst with strong foundations in Python,
+      Machine Learning, SQL, Power BI, and Tableau. Experienced in transforming raw
+      data into actionable insights and building predictive models.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h3 class="section-title">Technical Skills</h3>
+  <div class="skills-grid" data-aos="fade-up">
+    <div class="skill">Python (NumPy, Pandas, Scikit-learn)</div>
+    <div class="skill">Machine Learning & Model Evaluation</div>
+    <div class="skill">Feature Engineering & EDA</div>
+    <div class="skill">Power BI & Excel (DAX)</div>
+    <div class="skill">Tableau Dashboards</div>
+    <div class="skill">SQL & Databases</div>
+    <div class="skill">HTML & CSS</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h3 class="section-title">Experience</h3>
+  <div class="timeline" data-aos="fade-up">
+    <div class="timeline-item">
+      <h4>Jr. Data Analyst – Karthikeya Software Solutions</h4>
       <p>
-        Aspiring Data Scientist | Machine Learning Enthusiast | Data Analyst
-      </p>
-      <p style="text-indent: 70px;">
-        <b>I'm</b> a Data Science student passionate about extracting insights from data and building intelligent systems using 
-        <span style="color:#7d5ba6;">Machine Learning</span> and <span style="color:#7d5ba6;"> Deep Learning</span>.
-        I enjoy working on real-world datasets and continuously improving my analytical skills.
+        Created interactive dashboards, worked with databases,
+        and collaborated with senior analysts to deliver insights.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="content_info">
-      <h1 id="mech">Machine Learning</h1>
-      <p>
-        Creating intelligent systems using supervised and unsupervised
-        learning with real-world datasets.
-      </p>
-    </div>
-  </section>
+<!-- PROJECTS -->
+<section id="projects">
+  <h3 class="section-title">Projects</h3>
+  <div class="skills-grid" data-aos="fade-up">
+    <div class="card">Customer Churn Prediction</div>
+    <div class="card">Credit Card Fraud Detection</div>
+    <div class="card">Sales Forecasting & Demand Prediction</div>
+    <div class="card">HR & Sales Analytics Dashboards</div>
+  </div>
+</section>
 
-  <section>
-    <div class="content_info">
-      <h1>Artificial Intelligence</h1>
-      <p>
-        Exploring deep learning, neural networks, and automation
-        to solve complex problems.
-      </p>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer data-aos="fade-up">
+  <p class="connect">Connect with me</p>
+  <a href="mailto:regd.asseetha@gmail.com">Gmail</a>
+  <a href="https://www.linkedin.com/in/seetha-jagan">LinkedIn</a>
+  <a href="https://github.com/seethajagan-08">GitHub</a>
+  <a href="https://seethajagan-08.github.io/profile/">Portfolio</a>
+</footer>
 </div>
-</div>
-
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-/* ---------------- ULTRA SMOOTH SCROLL ---------------- */
-let current = 0;
-let target = 0;
-const ease = 0.08;
+  AOS.init({ duration: 1000, once: true });
 
-const container = document.querySelector(".scroll-container");
-const bodyHeight = container.getBoundingClientRect().height;
+  // Typing Text Animation
+  const words = ["Data Scientist", "Data Analyst", "ML Engineer", "AI Enthusiast", "Python Developer"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+  const typed = document.getElementById("typed");
 
-document.body.style.height = `${bodyHeight}px`;
+  function typeLoop() {
+    const current = words[wordIndex];
 
-window.addEventListener("scroll", () => {
-  target = window.scrollY;
-});
+    if (!deleting) {
+      typed.textContent = current.slice(0, charIndex + 1);
+      charIndex++;
+    } else {
+      typed.textContent = current.slice(0, charIndex - 1);
+      charIndex--;
+    }
 
-function smoothScroll() {
-  current += (target - current) * ease;
-  container.style.transform = `translateY(${-current}px)`;
-  requestAnimationFrame(smoothScroll);
-}
+    let speed = deleting ? 70 : 120;
 
-smoothScroll();
+    if (!deleting && charIndex === current.length) {
+      speed = 1200;
+      deleting = true;
+    }
 
-/* ---------------- SIDE_BAR & NAV_BAR ---------------- */
-// Side bar - Nav bar
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
-const menuBtn = document.getElementById("menuBtn");
-const closeBtn = document.getElementById("closeBtn");
+    if (deleting && charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      speed = 300;
+    }
 
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.add("open");
-    overlay.classList.add("show");
-    menuBtn.classList.add("hide");   // 🔥 hide hamburger
-});
+    setTimeout(typeLoop, speed);
+  }
 
-closeBtn.addEventListener("click", closeSidebar);
-overlay.addEventListener("click", closeSidebar);
+  typeLoop();
 
-function closeSidebar() {
-    sidebar.classList.remove("open");
-    overlay.classList.remove("show");
-    menuBtn.classList.remove("hide"); // 🔥 show hamburger
-}
 
-// Page links
-//about page
-document.getElementById("goToAbout").addEventListener("click", () => {
-    window.location.href = "about.html";
-});
-//projects page
-document.getElementById("goToProjects").addEventListener("click", () => {
-    window.location.href = "projects.html";
-});
-// BIN page
-document.getElementById("goToBIN").addEventListener("click", () => {
-    window.location.href = "bin.html";
-});
-
+  /* ---------------- Date & Time ---------------- */
 // Time & Date
-function updateUI() {
+/* function updateUI() {
 const now = new Date();
 const hour = now.getHours();
 // Date
@@ -225,11 +552,108 @@ const time = `${hours}:${minutes}:${seconds}`;
 
 document.getElementById("date").innerText = date;
 document.getElementById("time").innerText = time;
-document.getElementById("timeicon").innerText = icon;
+//document.getElementById("timeicon").innerText = icon;
 }
 
 setInterval(updateUI, 1000);
 updateUI();
+/* function updateTime() {
+  const now = new Date();
+  document.getElementById("date").innerText = now.toLocaleDateString();
+  document.getElementById("time").innerText = now.toLocaleTimeString();
+}
+setInterval(updateTime, 1000);
+updateTime();*/
+/* ---------------- Time & Date (AM / PM) ---------------- */
+
+function updateUI() {
+    const now = new Date();
+
+    /* -------- DATE -------- */
+    const dateOptions = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric"
+    };
+    const date = now.toLocaleDateString("en-IN", dateOptions);
+
+    /* -------- TIME -------- */
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours === 0 ? 12 : hours; // 12-hour format
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    const time = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    /* -------- DAY / NIGHT GIF -------- */
+    const hour24 = now.getHours();
+    const gif = (hour24 >= 6 && hour24 < 18) ? "sun.gif" : "moon.gif";
+    document.getElementById("dayNightGif").src = gif;
+
+    /* -------- UPDATE UI -------- */
+    document.getElementById("date").innerText = date;
+    document.getElementById("time").innerText = time;
+}
+
+setInterval(updateUI, 1000);
+updateUI();
+
+
+
+
+/* ---------------- SIDE_BAR & NAV_BAR ---------------- */
+// Side bar - Nav bar
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");
+    overlay.classList.add("show");    
+    menuBtn.classList.add("hide");   // 🔥 hide hamburger
+});
+
+closeBtn.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
+
+function closeSidebar() {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+    menuBtn.classList.remove("hide"); // 🔥 show hamburger
+}
+
+// Page links
+//about page
+document.getElementById("goToAbout").addEventListener("click", () => {
+    window.location.href = "about.html";
+});
+//projects page
+document.getElementById("goToProjects").addEventListener("click", () => {
+    window.location.href = "projects.html";
+});
+// BIN page
+document.getElementById("goToBIN").addEventListener("click", () => {
+    window.location.href = "bin.html";
+});
+
+  const fixedBar = document.getElementById("fixedBar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 750) {
+      fixedBar.classList.add("scrolled");
+    } else {
+      fixedBar.classList.remove("scrolled");
+    }
+  });
+
 </script>
 
 </body>
