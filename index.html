@@ -6,7 +6,7 @@
   <title>Seetha Jagan | Data Scientist & Analyst</title>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -56,8 +56,10 @@
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 3.6rem;
+      font-weight: 800;
+      font-family: 'Raleway', sans-serif;
+      letter-spacing: 0.03em;
       animation: fadeDown 1s ease;
     }
 
@@ -162,8 +164,13 @@
       box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
     }
 
-    /* shimmer sweep */
-    .skill::before {
+    /* shimmer sweep — project cards */
+    .card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -173,7 +180,7 @@
       z-index: 0;
     }
 
-    .skill:hover::before {
+    .card:hover::before {
       transform: translateX(100%);
     }
 
@@ -252,6 +259,43 @@
       text-decoration: none;
     }
 
+    footer .connect {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.05em;
+      color: #cbd5f5;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0f172a;
+      border: 1.5px solid #1e3a8a;
+      color: var(--accent);
+      font-size: 1.2rem;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+      color: white;
+    }
+
     /* ANIMATIONS */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-30px); }
@@ -264,6 +308,11 @@
     }
 
     /* Mobile only */
+    @media (max-width: 768px) {
+      header > div { flex-direction: column !important; }
+      header > div > div:last-child { border-left: none !important; border-top: 1px solid rgba(56,189,248,0.15); }
+    }
+
     @media (min-width: 993px) {
       .menu-btn { display: none; }
     }
@@ -341,26 +390,50 @@
   </nav>
 
   <!-- HERO -->
-  <header>
-    <div>
-      <h1>Seetha Jagan</h1>
-      <h2><span id="typed"></span></h2>
-      <a href="#projects">View My Work</a><br/><br/>
-      <a href="Seetha_Jagan's-Resume.pdf" download>Download Resume (PDF)</a>
+  <header style="text-align: left; align-items: stretch; padding: 0;">
+    <div style="display: flex; width: 100%; min-height: 100vh; align-items: center;">
+
+      <!-- LEFT: Text -->
+      <div style="flex: 1; padding: 4rem 5%;">
+        <h1 style="font-size: 3rem; font-weight: 700; animation: fadeDown 1s ease;">Seetha Jagan</h1>
+        <h2 style="margin-top: 0.6rem; font-weight: 400; color: #c7d2fe; animation: fadeUp 1.2s ease;">
+          <span id="typed"></span>
+        </h2>
+
+        <p style="margin-top: 1.4rem; color: #c7d2fe; font-size: 0.97rem; line-height: 1.8; max-width: 460px;">
+          Passionate Data Scientist and Data Analyst with strong foundations in Python,
+          Machine Learning, SQL, Power BI, and Tableau. Experienced in transforming raw
+          data into actionable insights and building predictive models.
+        </p>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#projects" style="margin-top: 0;">View My Work</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: BIN Card -->
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 5%; background: rgba(255,255,255,0.03); border-left: 1px solid rgba(56,189,248,0.15);">
+        <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 20px; padding: 2rem; max-width: 380px; width: 100%;">
+          <p style="color: var(--accent); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.12em; margin-bottom: 0.5rem;">✦ MY LEARNING SPACE</p>
+          <h3 style="color: white; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.7rem;">BIN — Brain Integration Neurons</h3>
+          <p style="color: #c7d2fe; font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.4rem;">
+            A personal space documenting my AI learning journey — from Mathematics & Python to
+            Machine Learning, Deep Learning, NLP, LLMs, and Generative AI. All resources and
+            insights, consolidated in one place.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem;">
+            <span style="background: rgba(56,189,248,0.12); color: var(--accent); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 500;">Python</span>
+            <span style="background: rgba(56,189,248,0.12); color: var(--accent); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 500;">Machine Learning</span>
+            <span style="background: rgba(56,189,248,0.12); color: var(--accent); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 500;">Deep Learning</span>
+            <span style="background: rgba(56,189,248,0.12); color: var(--accent); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 500;">LLMs</span>
+            <span style="background: rgba(56,189,248,0.12); color: var(--accent); border-radius: 20px; padding: 4px 12px; font-size: 0.78rem; font-weight: 500;">Generative AI</span>
+          </div>
+          <a href="https://learnai-bin.github.io/bin/" target="_blank" style="margin-top: 0; padding: 10px 24px; font-size: 0.9rem; background: var(--accent); border-radius: 30px; color: #0f172a; font-weight: 600; text-decoration: none; display: inline-block;">Explore BIN →</a>
+        </div>
+      </div>
+
     </div>
   </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h3 class="section-title">Profile</h3>
-    <div class="card" data-aos="fade-up">
-      <p style="text-indent:25px;">
-        Passionate Data Scientist and Data Analyst with strong foundations in Python,
-        Machine Learning, SQL, Power BI, and Tableau. Experienced in transforming raw
-        data into actionable insights and building predictive models.
-      </p>
-    </div>
-  </section>
 
   <!-- SKILLS -->
   <section id="skills">
